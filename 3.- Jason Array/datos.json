@@ -1,0 +1,22 @@
+[
+	{
+		"nombre" : "Cristhian",
+		"apellido": "Olivares",
+		"edad": 25
+	},
+	{
+		"nombre" : "Light",
+		"apellido": "Yagami",
+		"edad": 23
+	},
+	{
+		"nombre" : "Lawyiet",
+		"apellido": "L",
+		"edad": 30
+	},
+	{
+		"nombre" : "Misa",
+		"apellido": "Amane",
+		"edad": 21
+	}
+]
