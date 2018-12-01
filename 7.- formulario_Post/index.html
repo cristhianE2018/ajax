@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> FORMULARIO </title>
+</head>
+<body>
+	Nombre: <input type="text" id="txtnombre" placeholder="Ingresa tu nombre: ">
+	<br>
+	Apellido: <input type="text" id="txtapellidos" placeholder="Ingresa apellidos: ">
+	<input type="submit" value="Enviar" onclick="ajax_post()" />
+	<div id="info"></div>
+	<script type="text/javascript">
+		var resultado = document.getElementById("info");	
+		function ajax_post()
+		{
+			var xmlhttp;
+			if(window.XMLHttpRequest)
+			{
+				xmlhttp = new XMLHttpRequest();
+			}
+			else
+			{
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			var a = document.getElementById("txtnombre").value;
+			var b = document.getElementById("txtapellidos").value;
+			var informacionUsuario = "nombre="+a+"&apellidos="+ b;
+			xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState === 4 && xmlhttp.status===200)
+			{
+					var mensaje = xmlhttp.responseText;
+					resultado.innerHTML = mensaje;
+			}
+			}
+			xmlhttp.open("POST","servidor.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(informacionUsuario);
+		}
+	</script>
+</body>
+</html>
