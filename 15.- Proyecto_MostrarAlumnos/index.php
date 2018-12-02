@@ -114,6 +114,9 @@ function toggleOverlay(elemento){
 			overlay.style.display ="block";
 			informacionDelUsuario.style.display = "block";
 		}
+		var nombre = elemento.innerHTML;
+		var sexo = elemento.nextSibling.value;
+		info.innerHTML ="<strong>Nombre: </strong>" + nombre + "<br/>" + "<strong>Sexo: </strong>" + sexo;
 	}
 </script>
 </body>
