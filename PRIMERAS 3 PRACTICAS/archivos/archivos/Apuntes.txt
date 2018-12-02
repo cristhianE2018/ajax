@@ -1,0 +1,31 @@
+//DECLARAR UN ARREGLO
+            //TIPO DE DATO [] IDENTIFICADOR = NEW INT[TAMAÑO];
+            int[] array = new int[2];   
+            
+            //ASIGNAR UN VALOR
+            array[0] = 12;
+            array[1] = 13;
+
+            //OTRA FORMA MEDIANTE UN CICLO
+            for (int i = 0; i <= array.Length-1; i++)
+            {
+                Console.WriteLine("Ingresa valor para el arreglo en la posicion : " + i);
+                int valor = int.Parse(Console.ReadLine());
+                array[i] = valor;
+            }
+
+            //MOSTRAR LOS VALORES QUE CONTIENE UN ARREGLO
+            Console.WriteLine("Mostrarlos uno por uno");
+            Console.WriteLine(array[0]);
+            Console.WriteLine(array[1]);
+
+            //MOSTRAR LOS VALORES MEDIANTE UN CICLO
+            Console.WriteLine("mediante un ciclo");
+            for (int i = 0; i <= array.Length - 1; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+            Console.ReadKey();
+
+	//REGLAS: EL ARRAY DEBE EMPEZAR EN EL INDICE 0 Y SOLO PUEDEN SER DE UN
+                 //MISTO TIPO DE DATO
