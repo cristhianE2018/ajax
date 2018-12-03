@@ -51,6 +51,24 @@
 				document.getElementById(actualizar).style.display = "block";
 			}
 		}
+
+		function actualizarUsuario(usuarioID) {
+			var xmlhttp;
+			if(window.XMLHttpRequest) 
+				xmlhttp = new XMLHttpRequest();
+			else
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+			var nombreActualizado = document.getElementById("nombreID" + usuarioID + "-editar").value;
+			xmlhttp.onreadystatechange = function() {
+				if(this.readyState === 4 && this.status === 200) {
+					mostrarUsuarios();
+				}
+			}
+
+			xmlhttp.open("GET", "servidor.php?usuarioIDActualizado=" + usuarioID + "&nombreActualizado=" + nombreActualizado, true);
+			xmlhttp.send();
+		}
 	</script>
 </body>
 </html>
