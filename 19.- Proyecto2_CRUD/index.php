@@ -9,6 +9,16 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div id="overlay">
+		<div id="nuevaVentana">
+			<div id="box-header"></div>
+			<button onmousedown="ejecutarNuevaVentana()" id="botonCerrar"></button><br><br><br>
+			<label>Nombre: </label><input type="text" id="nuevoUsuarioID"><br><br>
+			<label>Correo: </label><input type="email" id="nuevoEmailID"><br><br><br>
+			<button onmousedown="agregarUsuario()" style="margin-left: 40%;" class="btn btn-success">Agregar usuario nuevo</button>
+		</div>
+	</div>
+
 	<div id="wrapper">
 		<div id="info"></div>
 	</div>
@@ -88,6 +98,23 @@
 				xmlhttp.open("GET", "servidor.php?usuarioIDEliminado=" + usuarioID);
 				xmlhttp.send();
 			}
+		}
+
+		var overlay = document.getElementById("overlay");
+		var nuevaVentana = document.getElementById("nuevaVentana");
+		function ejecutarNuevaVentana() {
+			overlay.style.opacity = .5;
+			if(overlay.style.display == "block") {
+				overlay.style.display = "none";
+				nuevaVentana.style.display = "none";
+			}
+			else {
+				overlay.style.display = "block";
+				nuevaVentana.style.display = "block";
+			}
+
+			document.getElementById("nuevoUsuarioID").value = "";
+			document.getElementById("nuevoEmailID").value = "";
 		}
 	</script>
 </body>
