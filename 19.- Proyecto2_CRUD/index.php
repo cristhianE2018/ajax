@@ -69,6 +69,26 @@
 			xmlhttp.open("GET", "servidor.php?usuarioIDActualizado=" + usuarioID + "&nombreActualizado=" + nombreActualizado, true);
 			xmlhttp.send();
 		}
+
+		function borrarUsuario(usuarioID) {
+			var respuesta = confirm("Estas seguro de borrar este usuario?");
+
+			if(respuesta === true) {
+				if(window.XMLHttpRequest) 
+					xmlhttp = new XMLHttpRequest();
+				else
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+				xmlhttp.onreadystatechange = function() {
+					if(this.readyState === 4 && this.status === 200) {
+						mostrarUsuarios();
+					}
+				}
+
+				xmlhttp.open("GET", "servidor.php?usuarioIDEliminado=" + usuarioID);
+				xmlhttp.send();
+			}
+		}
 	</script>
 </body>
 </html>
