@@ -116,6 +116,30 @@
 			document.getElementById("nuevoUsuarioID").value = "";
 			document.getElementById("nuevoEmailID").value = "";
 		}
+
+		function agregarUsuario() {
+			overlay.style.display = "none";
+			nuevaVentana.style.display = "none";
+
+			if(window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			}
+			else {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			var nuevoUsuario = document.getElementById("nuevoUsuarioID").value;
+			var nuevoEmail = document.getElementById("nuevoEmailID").value;
+
+			xmlhttp.onreadystatechange = function() {
+				if(this.readyState === 4 && this.status === 2000) {
+					mostrarUsuarios();
+				}
+			}
+
+			xmlhttp.open("GET", "servidor.php?nuevoUsuario=" + nuevoUsuario + "&nuevoEmail=" + nuevoEmail, true);
+			xmlhttp.send(); 
+		}
 	</script>
 </body>
 </html>
